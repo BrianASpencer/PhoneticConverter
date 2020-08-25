@@ -4,13 +4,16 @@ from tkinter import Text
 
 
 root = tk.Tk()
-root.geometry("400x240")
+root.geometry("800x480")
 
-textExample = tk.Text(root, height=10)
-textExample.pack()
+textBox = tk.Text(root, height=10)
+textBox.pack()
+
+def clearText():
+    textBox.delete(1.0,"end")
 
 def setText(s):
-    textExample.insert(1.0, s)
+    textBox.insert(1.0, s)
 
 def readText(string):
     d = {
@@ -43,24 +46,31 @@ def readText(string):
     }
     
     string = string.lower()
+
+    out = ""
     
-    out = string
-    out = out + ": "
     for i in string:
         if i in d:
             out = out + d[i] + " "
     setText(out)
 
 def processText():
-    result = textExample.get(1.0, tk.END+"-1c")
-    textExample.delete(1.0,"end")
+    result = textBox.get(1.0, tk.END+"-1c")
+    clearText()
     readText(result)
 
-btnSet = tk.Button(root, 
+btnConv = tk.Button(root, 
                    height=1, 
                    width=10, 
-                   text="Set", 
+                   text="Convert", 
                    command=lambda:processText())
-btnSet.pack()
+btnConv.pack()
+
+btnClear = tk.Button(root, 
+                   height=1, 
+                   width=10, 
+                   text="Clear", 
+                   command=lambda:clearText())
+btnClear.pack()
 
 root.mainloop()
