@@ -69,7 +69,7 @@ def processText():
     clearText()
     readText(result)
 
-
+#buttons in new column
 btnConv = tk.Button(root,
                     height=1,
                     width=10,
