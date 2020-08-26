@@ -75,14 +75,14 @@ btnConv = tk.Button(root,
                     width=10,
                     text="Convert",
                     command=lambda: processText())
-btnConv.grid(row=2, column=1)
+btnConv.grid(row=2, column=1, sticky="N")
 
 btnClear = tk.Button(root,
                      height=1,
                      width=10,
                      text="Clear",
                      command=lambda: clearText())
-btnClear.grid(row=2, column=2)
+btnClear.grid(row=2, column=1)
 
 
 root.mainloop()
