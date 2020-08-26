@@ -33,15 +33,15 @@ d = {
 }
 
 root = tk.Tk()
-# dimensions
-width, height = pyautogui.size()
-widthStr = str(width//3)
-heightStr = str(height//12)
-resolution = widthStr + "x" + heightStr
-root.geometry(resolution)
 
-textBox = tk.Text(root, height=5, width=width//30)
-textBox.grid(row=1, column=0)
+label = tk.Label(text="Enter text to convert: ")
+label.grid(row=1, column=0, sticky="W")
+
+# dimensions
+root.geometry("790x115")
+
+textBox = tk.Text(root, height=5, width=78)
+textBox.grid(row=2, column=0)
 
 
 def clearText():
@@ -75,13 +75,14 @@ btnConv = tk.Button(root,
                     width=10,
                     text="Convert",
                     command=lambda: processText())
-btnConv.grid(row=1, column=1)
+btnConv.grid(row=2, column=1)
 
 btnClear = tk.Button(root,
                      height=1,
                      width=10,
                      text="Clear",
                      command=lambda: clearText())
-btnClear.grid(row=1, column=2)
+btnClear.grid(row=2, column=2)
+
 
 root.mainloop()
