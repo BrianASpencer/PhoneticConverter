@@ -34,6 +34,8 @@ d = {
 
 root = tk.Tk()
 
+root.title("Phonetic Converter")
+
 label = tk.Label(text="Enter text to convert: ")
 label.grid(row=1, column=0, sticky="W")
 
