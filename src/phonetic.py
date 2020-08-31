@@ -36,11 +36,11 @@ root = tk.Tk()
 
 root.title("Phonetic Converter")
 
-label = tk.Label(text="Enter text to convert: ")
+label = tk.Label(text="Enter text below: ")
 label.grid(row=1, column=0, sticky="W")
 
 # dimensions
-root.geometry("790x115")
+root.geometry("790x118")
 
 textBox = tk.Text(root, font="Helvetica 12", height=5, width=78)
 textBox.grid(row=2, column=0)
