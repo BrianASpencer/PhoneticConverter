@@ -50,16 +50,16 @@ def clearText():
     textBox.delete(1.0, "end")
 
 
-def setText(string):
+def setText(string, offset):
     textBox.tag_configure("bold", font="Helvetica 14 bold")
-    for i in range(len(string)-1, -1, -1):
+    for i in range(0, len(string)):
         if i == 0:
-            textBox.insert(1.0, string[i], "bold")
+            textBox.insert(1.0+offset+i, string[i], "bold")
         else:
             if string[i-1] == " ":
-                textBox.insert(1.0, string[i], "bold")
+                textBox.insert(1.0+offset+i, string[i], "bold")
             else:
-                textBox.insert(1.0, string[i])
+                textBox.insert(1.0+offset+i, string[i])
 
 
 def readText(string):
@@ -68,10 +68,15 @@ def readText(string):
 
     out = ""
 
+    origString = ""
+
     for i in string:
         if i in d:
+            origString = origString + i
             out = out + d[i] + " "
-    setText(out)
+    origString = origString + ": "
+    textBox.insert(1.0, origString)
+    setText(out, len(origString))
 
 
 def processText():
